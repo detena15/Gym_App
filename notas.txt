@@ -1,0 +1,2 @@
+1. A veces se vacia el json no se por qué. Si se vacía, falla la apertura del fichero como json
+2. eliminar las dos ultimas lineas de codigo de la def submit de la clase TableScreen

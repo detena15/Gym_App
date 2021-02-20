@@ -1,0 +1,355 @@
+<RootWidget>:
+    HomePage:
+        name: "home_page"
+    TableScreen:
+        name: "table_screen"
+    SubmittedScreen:
+        name: "submitted_screen"
+
+<HomePage>:
+    GridLayout:
+        cols: 1
+        padding:15,15
+        RelativeLayout:
+            GridLayout:
+                cols: 1
+                Label:
+                    text: "Home Page"
+                    font_size:'100sp'
+                RelativeLayout:
+                    Button:
+                        id: entrenar_btn
+                        text: "¡A entrenar!"
+                        pos_hint: {'center_x':0.5, 'center_y':0.6}
+                        size_hint: 0.5,0.15
+                        on_press: root.entrenar()
+
+<TableScreen>:
+    GridLayout:
+        cols:1
+        padding: 15, 15
+        RelativeLayout:
+            size_hint: 1,0.2
+            GridLayout:
+                cols: 1
+                Label:
+                    pos_hint: {'center_x':0.5, 'center_y':0.6}
+                    font_size:'30sp'
+                    text: "VOLUNTAD"
+                Label:
+                    pos_hint: {'center_x':0.5, 'center_y':0.3}
+                    font_size:'20sp'
+                    text: root.obtener_fecha()
+        RelativeLayout:
+            size_hint: 1,0.6
+            GridLayout:
+                cols: 6
+                GridLayout:
+                    cols: 1
+                    Label:
+                        text: "Ejercicio"
+                    Label:
+                        id: ejercicio_1
+                        text: "Flexiones"
+                    Label:
+                        id: ejercicio_2
+                        text: "Martillo"
+                    Label:
+                        id: ejercicio_3
+                        text: "Sentadillas"
+                    Label:
+                        id: ejercicio_4
+                        text: "Hombro"
+                    Label:
+                        id: ejercicio_5
+                        text: "Remo"
+                    Label:
+                        id: ejercicio_6
+                        text: "Abdominales"
+                    Label:
+                        id: ejercicio_7
+                        text: "Lumbares"
+                    Label:
+                        id: ejercicio_8
+                        text: "Jabs"
+                    Label:
+                        id: ejercicio_9
+                        text: "Triceps"
+                GridLayout:
+                    cols: 1
+                    Label:
+                        id: repes
+                        text: "Repeticiones"
+                    Label:
+                        id: repes_1
+                        text: "10"
+                    Label:
+                        id: repes_2
+                        text: "10"
+                    Label:
+                        id: repes_3
+                        text: "15"
+                    Label:
+                        id: repes_4
+                        text: "15"
+                    Label:
+                        id: repes_5
+                        text: "15"
+                    Label:
+                        id: repes_6
+                        text: "30"
+                    Label:
+                        id: repes_7
+                        text: "15"
+                    Label:
+                        id: repes_8
+                        text: "30"
+                    Label:
+                        id: repes_9
+                        text: "15"
+                GridLayout:
+                    cols: 1
+                    Label:
+                        id: peso
+                        text: "Peso [Kg]"
+                    Label:
+                        id: peso_1
+                        text: "Libre"
+                    Label:
+                        id: peso_2
+                        text: "Libre"
+                    Label:
+                        id: peso_3
+                        text: "Libre"
+                    Label:
+                        id: peso_4
+                        text: "5"
+                    Label:
+                        id: peso_5
+                        text: "20"
+                    Label:
+                        id: peso_6
+                        text: "Libre"
+                    Label:
+                        id: peso_7
+                        text: "Libre"
+                    Label:
+                        id: peso_8
+                        text: "5"
+                    Label:
+                        id: peso_9
+                        text: "15"
+                GridLayout:
+                    cols: 1
+                    Label:
+                        id: serie_1
+                        text: "1ª Serie"
+                    Button:
+                        id: serie_1_eje_1
+                        text: "Done"
+                        background_color: root.color("1", "Flexiones")
+                        #background_color: root.color("1",root.ids.ejercicio_1.text)
+                        on_press: root.done("1", root.ids.ejercicio_1.text,"serie_1_eje_1")
+                    Button:
+                        id: serie_1_eje_2
+                        text: "Done"
+                        background_color: root.color("1", "Martillo")
+                        on_press: root.done("1", root.ids.ejercicio_2.text,"serie_1_eje_2")
+                    Button:
+                        id: serie_1_eje_3
+                        text: "Done"
+                        background_color: root.color("1", "Sentadillas")
+                        on_press: root.done("1", root.ids.ejercicio_3.text,"serie_1_eje_3")
+                    Button:
+                        id: serie_1_eje_4
+                        text: "Done"
+                        background_color: root.color("1", "Hombro")
+                        on_press: root.done("1", root.ids.ejercicio_4.text,"serie_1_eje_4")
+                    Button:
+                        id: serie_1_eje_5
+                        text: "Done"
+                        background_color: root.color("1", "Remo")
+                        on_press: root.done("1", root.ids.ejercicio_5.text,"serie_1_eje_5")
+                    Button:
+                        id: serie_1_eje_6
+                        text: "Done"
+                        background_color: root.color("1", "Abdominales")
+                        on_press: root.done("1", root.ids.ejercicio_6.text,"serie_1_eje_6")
+                    Button:
+                        id: serie_1_eje_7
+                        text: "Done"
+                        background_color: root.color("1", "Lumbares")
+                        on_press: root.done("1", root.ids.ejercicio_7.text,"serie_1_eje_7")
+                    Button:
+                        id: serie_1_eje_8
+                        text: "Done"
+                        background_color: root.color("1", "Jabs")
+                        on_press: root.done("1", root.ids.ejercicio_8.text,"serie_1_eje_8")
+                    Button:
+                        id: serie_1_eje_9
+                        text: "Done"
+                        background_color: root.color("1", "Triceps")
+                        on_press: root.done("1", root.ids.ejercicio_9.text,"serie_1_eje_9")
+                GridLayout:
+                    cols: 1
+                    Label:
+                        id: serie_2
+                        text: "2ª Serie"
+                    Button:
+                        id: serie_2_eje_1
+                        text: "Done"
+                        background_color: root.color("2", "Flexiones")
+                        on_press: root.done("2", root.ids.ejercicio_1.text,"serie_2_eje_1")
+                    Button:
+                        id: serie_2_eje_2
+                        text: "Done"
+                        background_color: root.color("2", "Martillo")
+                        on_press: root.done("2", root.ids.ejercicio_2.text,"serie_2_eje_2")
+                    Button:
+                        id: serie_2_eje_3
+                        text: "Done"
+                        background_color: root.color("2", "Sentadillas")
+                        on_press: root.done("2", root.ids.ejercicio_3.text,"serie_2_eje_3")
+                    Button:
+                        id: serie_2_eje_4
+                        text: "Done"
+                        background_color: root.color("2", "Hombro")
+                        on_press: root.done("2", root.ids.ejercicio_4.text,"serie_2_eje_4")
+                    Button:
+                        id: serie_2_eje_5
+                        text: "Done"
+                        background_color: root.color("2", "Remo")
+                        on_press: root.done("2", root.ids.ejercicio_5.text,"serie_2_eje_5")
+                    Button:
+                        id: serie_2_eje_6
+                        text: "Done"
+                        background_color: root.color("2", "Abdominales")
+                        on_press: root.done("2", root.ids.ejercicio_6.text,"serie_2_eje_6")
+                    Button:
+                        id: serie_2_eje_7
+                        text: "Done"
+                        background_color: root.color("2", "Lumbares")
+                        on_press: root.done("2", root.ids.ejercicio_7.text,"serie_2_eje_7")
+                    Button:
+                        id: serie_2_eje_8
+                        text: "Done"
+                        background_color: root.color("2", "Jabs")
+                        on_press: root.done("2", root.ids.ejercicio_8.text,"serie_2_eje_8")
+                    Button:
+                        id: serie_2_eje_9
+                        text: "Done"
+                        background_color: root.color("2", "Triceps")
+                        on_press: root.done("2", root.ids.ejercicio_9.text,"serie_2_eje_9")
+                        
+                GridLayout:
+                    cols: 1
+                    Label:
+                        id: serie_3
+                        text: "3ª Serie"
+                    Button:
+                        id: serie_3_eje_1
+                        text: "Done"
+                        background_color: root.color("3", "Flexiones")
+                        on_press: root.done("3", root.ids.ejercicio_1.text,"serie_3_eje_1")  
+                    Button:
+                        id: serie_3_eje_2
+                        text: "Done"
+                        background_color: root.color("3", "Martillo")
+                        on_press: root.done("3", root.ids.ejercicio_2.text,"serie_3_eje_2")  
+                    Button:
+                        id: serie_3_eje_3
+                        text: "Done"
+                        background_color: root.color("3", "Sentadillas")
+                        on_press: root.done("3", root.ids.ejercicio_3.text,"serie_3_eje_3")
+                    Button:
+                        id: serie_3_eje_4
+                        text: "Done"
+                        background_color: root.color("3", "Hombro")
+                        on_press: root.done("3", root.ids.ejercicio_4.text,"serie_3_eje_4")
+                    Button:
+                        id: serie_3_eje_5
+                        text: "Done"
+                        background_color: root.color("3", "Remo")
+                        on_press: root.done("3", root.ids.ejercicio_5.text,"serie_3_eje_5")
+                    Button:
+                        id: serie_3_eje_6
+                        text: "Done"
+                        background_color: root.color("3", "Abdominales")
+                        on_press: root.done("3", root.ids.ejercicio_6.text,"serie_3_eje_6")
+                    Button:
+                        id: serie_3_eje_7
+                        text: "Done"
+                        background_color: root.color("3", "Lumbares")
+                        on_press: root.done("3", root.ids.ejercicio_7.text,"serie_3_eje_7")
+                    Button:
+                        id: serie_3_eje_8
+                        text: "Done"
+                        background_color: root.color("3", "Jabs")
+                        on_press: root.done("3", root.ids.ejercicio_8.text,"serie_3_eje_8")
+                    Button:
+                        id: serie_3_eje_9
+                        text: "Done"
+                        background_color: root.color("3", "Triceps")
+                        on_press: root.done("3", root.ids.ejercicio_9.text,"serie_3_eje_9")
+        RelativeLayout:
+            size_hint: 1,0.15
+            GridLayout:
+                cols: 2
+                size_hint: 0.5,0.3
+                pos_hint: {'center_x':0.5, 'center_y':0.6}
+                Button:
+                    id: resetear_btn
+                    text: "Resetear"
+                    on_press: root.resetear()
+                Button:
+                    id: submit_btn
+                    text: "Submit"
+                    on_press: root.submit()
+        RelativeLayout:
+            size_hint: 1,0.05
+            GridLayout:
+                cols: 1
+                pos_hint: {'center_x':0.5, 'center_y':1.3}
+                Label:
+                    id: infor
+                    text: ""
+
+<SubmittedScreen>:
+    GridLayout:
+        cols:1
+        RelativeLayout:
+            size_hint: 1,0.3
+            Label:
+                text: "Enhorabuena"
+                font_size:'60sp'
+        RelativeLayout:
+            size_hint: 1,0.5
+            GridLayout:
+                cols:2
+                GridLayout:
+                    cols:1
+                    Label:
+                        id: serie_1
+                        text: root.status()
+                    Label:
+                        id: serie_2
+                        text: ""
+                    Label:
+                        id: serie_3
+                        text: ""
+                Label:
+                    id: porcentaje
+                    font_size:'30sp'
+                    text: ""
+                    color: 0.1, 0.7, 1, 1
+                    
+        RelativeLayout:
+            size_hint: 1,0.2
+            Button:
+                id: inicio_btn
+                text: "Volver a Home Page"
+                size_hint: 0.25,0.25
+                pos_hint: {'center_x':0.5, 'center_y':0.1}
+                on_press: root.volver_a_inicio()    
+        
+
