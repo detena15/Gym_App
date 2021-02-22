@@ -27,9 +27,7 @@ class TableScreen(Screen):
 
     def obtener_fecha(self): return fecha_actual
     
-    def color(self, serie, ejercicio): 
-        
-        return sesion.Cambiar_Color(serie,ejercicio)
+    def color(self, serie, ejercicio): return sesion.Cambiar_Color(serie,ejercicio)
 
     def done(self, serie, ejercicio, id):
     
@@ -58,28 +56,14 @@ class TableScreen(Screen):
         else:
 
             historial.Añadir_Nueva_Sesion(sesion.tabla_plantilla,fecha_actual)
-
-            #print("sesion TABLA PLANTILLA: ", sesion.tabla_plantilla)
             
             historial.Guardar_Historial(tabla_historial_path,historial.tabla_historial)
-
-            sesion.Todo_Cero()
-
-            #print("HISTORIAL: ",historial.tabla_historial)
-
-            #print("PORCENTAJE: ",historial.Porcentaje(fecha_actual))
-            
-            #print("Ultima fecha: ",max(historial.tabla_historial.keys()))
-
-            #print("ULTIMA SESION: ",historial.tabla_historial[max(historial.tabla_historial.keys())])
 
             self.manager.transition.direction = "left"
 
             self.manager.current = "submitted_screen"
 
-        #QUITAR ESTAS DOS LINEAS LUEGO ------- !!!!
-        self.manager.transition.direction = "left"
-        self.manager.current = "submitted_screen"
+            #sesion.Todo_Cero()  ----> ¿Es necesario?
 
 class SubmittedScreen(Screen):
     
@@ -88,13 +72,18 @@ class SubmittedScreen(Screen):
         self.manager.transition.direction = "right"
 
         self.manager.current = "home_page"
+    
+    def on_enter(self):
 
-    def status(self):
+        porcentaje = 0
 
-        self.ids.porcentaje.text = historial.Porcentaje()
+        for serie in series:
 
-        return "hola"
-
+            self.ids[serie].text = "Serie " + serie + " ---> " +str(historial.Ratio_Serie(serie)) + " / 27"
+            
+            porcentaje = porcentaje + historial.Ratio_Serie(serie)
+        
+        self.ids.porcentaje.text = str(round(((porcentaje/27)*100),2))
 
 class RootWidget(ScreenManager):
     pass
@@ -120,6 +109,8 @@ fecha_actual = datetime.now().strftime("%Y-%m-%d")
 
 color0 = [0.1, 0.7, 1, 1]
 color1 = [0.8, 0.2, 1, 1]
+
+series = ["1","2","3"]
 
 serie_ejercicio = ["serie_1_eje_1","serie_1_eje_2","serie_1_eje_3","serie_1_eje_4","serie_1_eje_5","serie_1_eje_6","serie_1_eje_7","serie_1_eje_8","serie_1_eje_9",
         "serie_2_eje_1","serie_2_eje_2","serie_2_eje_3","serie_2_eje_4","serie_2_eje_5","serie_2_eje_6","serie_2_eje_7","serie_2_eje_8","serie_2_eje_9",

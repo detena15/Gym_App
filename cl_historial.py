@@ -1,4 +1,4 @@
-from archivos import *  
+from archivos import *
 
 class Historial():
 
@@ -11,32 +11,25 @@ class Historial():
 
         escribir_archivo(path,archivo)
 
-    
+
     def Añadir_Nueva_Sesion(self,tabla_plantilla,fecha_actual):
+
         self.tabla_historial[fecha_actual] = tabla_plantilla
-        #print("CLASE TABLA PLANTILLA: ",tabla_plantilla)
-        #print("CLASE TABLA HISTORIAL: ",self.tabla_historial)
+        
+    
+    def Ratio_Serie(self,serie):
+
+        contador = 0
+
+        self.serie = self.tabla_historial[max(self.tabla_historial.keys())][serie]
+
+        for ejercicio in self.serie:
+            
+            contador = contador + self.serie[ejercicio]
+        
+        return contador
+        
+        
+
 
     
-    def Porcentaje(self):
-        
-        #leo de nuevo el historial, ahora con la ultima sesion añadida
-        tabla_historial = leer_archivo("historial.json")
-
-        #selecciono el ultimo item añadido
-        series = tabla_historial[max(tabla_historial.keys())]
-        #series = hist[fecha]
-        #print(fecha)
-        #series = self.tabla_historial[fecha]
-        
-        contador = {"1" : 0, "2" : 0, "3" : 0}
-
-        for serie in series:
-
-            for ejercicio in series[serie]:
-
-               contador[serie] = contador[serie] + series[serie][ejercicio]
-        
-        porcentaje = str(round(((contador["1"] + contador["2"] + contador["3"])/27)*100)) + " %"
-
-        return porcentaje
