@@ -4,6 +4,7 @@ from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager,Screen
 from kivy.uix.image import Image
 from kivy.uix.behaviors import ButtonBehavior
+from kivy.uix.boxlayout import BoxLayout
 
 from datetime import datetime
 from pathlib import Path
@@ -75,15 +76,18 @@ class SubmittedScreen(Screen):
     
     def on_enter(self):
 
-        porcentaje = 0
+        ratio = 0
 
         for serie in series:
 
-            self.ids[serie].text = "Serie " + serie + " ---> " +str(historial.Ratio_Serie(serie)) + " / 27"
+            self.ids[serie].text = "Serie " + serie + " ---> " +str(historial.Ratio_Serie(serie)) + " / 9"
             
-            porcentaje = porcentaje + historial.Ratio_Serie(serie)
+            ratio = ratio + historial.Ratio_Serie(serie)
         
-        self.ids.porcentaje.text = str(round(((porcentaje/27)*100),2))
+        self.ids.ratio_sesion.text = "Sesión ---> " + str(ratio) + " / 27"
+
+        self.ids.porcentaje.text = str(round(((ratio/27)*100),2)) + " %"
+
 
 class RootWidget(ScreenManager):
     pass
