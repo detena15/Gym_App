@@ -5,6 +5,8 @@
         name: "table_screen"
     SubmittedScreen:
         name: "submitted_screen"
+    ModificarEjercicio:
+        name: "modificar_ejercicio"
 
 <HomePage>:
     GridLayout:
@@ -12,7 +14,7 @@
         padding:15,15
         RelativeLayout:
             Image:
-                source: "pic_01.jpg"
+                source: "Images/pic_01.jpg"
                 #pos_hint: {'center_x':0.5, 'center_y':0.6}
             GridLayout:
                 cols: 1
@@ -53,33 +55,42 @@
                     cols: 1
                     Label:
                         text: "Ejercicio"
-                    Label:
+                    Button:
                         id: ejercicio_1
                         text: "Flexiones"
-                    Label:
+                        on_press: root.ir_a_modificar(root.ids.ejercicio_1.text)
+                    Button:
                         id: ejercicio_2
-                        text: "Martillo"
-                    Label:
+                        text: ""
+                        on_press: root.ir_a_modificar(root.ids.ejercicio_2.text)
+                    Button:
                         id: ejercicio_3
-                        text: "Sentadillas"
-                    Label:
+                        text: ""
+                        on_press: root.ir_a_modificar(root.ids.ejercicio_3.text)
+                    Button:
                         id: ejercicio_4
-                        text: "Hombro"
-                    Label:
+                        text: ""
+                        on_press: root.ir_a_modificar(root.ids.ejercicio_4.text)
+                    Button:
                         id: ejercicio_5
-                        text: "Remo"
-                    Label:
+                        text: ""
+                        on_press: root.ir_a_modificar(root.ids.ejercicio_5.text)
+                    Button:
                         id: ejercicio_6
-                        text: "Abdominales"
-                    Label:
+                        text: ""
+                        on_press: root.ir_a_modificar(root.ids.ejercicio_6.text)
+                    Button:
                         id: ejercicio_7
-                        text: "Lumbares"
-                    Label:
+                        text: ""
+                        on_press: root.ir_a_modificar(root.ids.ejercicio_7.text)
+                    Button:
                         id: ejercicio_8
-                        text: "Jabs"
-                    Label:
+                        text: ""
+                        on_press: root.ir_a_modificar(root.ids.ejercicio_8.text)
+                    Button:
                         id: ejercicio_9
-                        text: "Triceps"
+                        text: ""
+                        on_press: root.ir_a_modificar(root.ids.ejercicio_9.text)
                 GridLayout:
                     cols: 1
                     Label:
@@ -87,31 +98,31 @@
                         text: "Repeticiones"
                     Label:
                         id: repes_1
-                        text: "10"
+                        text: ""
                     Label:
                         id: repes_2
-                        text: "10"
+                        text: ""
                     Label:
                         id: repes_3
-                        text: "15"
+                        text: ""
                     Label:
                         id: repes_4
-                        text: "15"
+                        text: ""
                     Label:
                         id: repes_5
-                        text: "15"
+                        text: ""
                     Label:
                         id: repes_6
-                        text: "30"
+                        text: ""
                     Label:
                         id: repes_7
-                        text: "15"
+                        text: ""
                     Label:
                         id: repes_8
-                        text: "30"
+                        text: ""
                     Label:
                         id: repes_9
-                        text: "15"
+                        text: ""
                 GridLayout:
                     cols: 1
                     Label:
@@ -119,31 +130,31 @@
                         text: "Peso [Kg]"
                     Label:
                         id: peso_1
-                        text: "Libre"
+                        text: ""
                     Label:
                         id: peso_2
-                        text: "Libre"
+                        text: ""
                     Label:
                         id: peso_3
-                        text: "Libre"
+                        text: ""
                     Label:
                         id: peso_4
-                        text: "5"
+                        text: ""
                     Label:
                         id: peso_5
-                        text: "20"
+                        text: ""
                     Label:
                         id: peso_6
-                        text: "Libre"
+                        text: ""
                     Label:
                         id: peso_7
-                        text: "Libre"
+                        text: ""
                     Label:
                         id: peso_8
-                        text: "5"
+                        text: ""
                     Label:
                         id: peso_9
-                        text: "15"
+                        text: ""
                 GridLayout:
                     cols: 1
                     Label:
@@ -321,7 +332,7 @@
 
 <SubmittedScreen>:
     Image:
-        source: "pic_02.jpg"
+        source: "Images/pic_02.jpg"
         opacity: 0.5
     GridLayout:
         cols:1
@@ -369,5 +380,35 @@
                 size_hint: 0.25,0.25
                 pos_hint: {'center_x':0.5, 'center_y':0.1}
                 on_press: root.volver_a_inicio()    
-        
+
+
+<ModificarEjercicio>:
+    GridLayout:
+        cols:1
+        GridLayout:
+            cols:2
+            GridLayout:
+                cols:1
+                Label:
+                    text: "Repeticiones"
+                TextInput:
+                    id: repes
+                    text: ""
+            GridLayout:
+                cols:1
+                Label:
+                    text: "Peso [kg]"
+                TextInput:
+                    id: peso
+                    text: ""
+        GridLayout:
+            cols: 2
+            Button:
+                text: "Volver a la Sesión"
+                on_press: root.volver_a_sesion()
+            Button:
+                text: "Modificar"
+                on_press: root.modificar_valor()
+
+
 

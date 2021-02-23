@@ -42,5 +42,9 @@ class Sesion():
         else:
 
             return color0
-     
+    
+    def Series_Count(self):
+
+        return [serie for serie in self.tabla_plantilla]
+        
 
