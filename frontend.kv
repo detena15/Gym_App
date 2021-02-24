@@ -46,8 +46,9 @@
                         on_press: root.entrenar()
         
 <TableScreen>:
-    #Image:
-        #source: "pic_02.jpg"
+    Image:
+        source: "Images/sea_coast_starry_sky.jpg"
+        opacity: 0.5
     GridLayout:
         cols:1
         padding: 15, 15
@@ -55,11 +56,10 @@
             size_hint: 1,0.2
             GridLayout:
                 cols: 1
-                BackgroundLabel:
-                    background_color: 0.2, 0.2, 0.2, 1
+                Label:
                     pos_hint: {'center_x':0.5, 'center_y':0.6}
                     font_size:'30sp'
-                    text: "VOLUNTAD"
+                    text: "Voluntad"
                 Label:
                     pos_hint: {'center_x':0.5, 'center_y':0.3}
                     font_size:'20sp'
@@ -71,49 +71,58 @@
                 GridLayout:
                     cols: 1
                     BackgroundLabel:
-                        background_color: 0.5, 0.5, 0.8, 1
+                        background_color: 0.5, 0.5, 0.8, 0.8
                         color: 0,0,0,1
                         text: "Ejercicio"
                     Button:
+                        background_color: 0,0,0,0.4
                         id: ejercicio_1
                         text: "Flexiones"
                         on_press: root.ir_a_modificar(root.ids.ejercicio_1.text)
                     Button:
+                        background_color: 0,0,0,0.4
                         id: ejercicio_2
                         text: ""
                         on_press: root.ir_a_modificar(root.ids.ejercicio_2.text)
                     Button:
+                        background_color: 0,0,0,0.4
                         id: ejercicio_3
                         text: ""
                         on_press: root.ir_a_modificar(root.ids.ejercicio_3.text)
                     Button:
+                        background_color: 0,0,0,0.4
                         id: ejercicio_4
                         text: ""
                         on_press: root.ir_a_modificar(root.ids.ejercicio_4.text)
                     Button:
+                        background_color: 0,0,0,0.4
                         id: ejercicio_5
                         text: ""
                         on_press: root.ir_a_modificar(root.ids.ejercicio_5.text)
                     Button:
+                        background_color: 0,0,0,0.4
                         id: ejercicio_6
                         text: ""
                         on_press: root.ir_a_modificar(root.ids.ejercicio_6.text)
                     Button:
+                        background_color: 0,0,0,0.4
                         id: ejercicio_7
                         text: ""
                         on_press: root.ir_a_modificar(root.ids.ejercicio_7.text)
                     Button:
+                        background_color: 0,0,0,0.4
                         id: ejercicio_8
                         text: ""
                         on_press: root.ir_a_modificar(root.ids.ejercicio_8.text)
                     Button:
+                        background_color: 0,0,0,0.4
                         id: ejercicio_9
                         text: ""
                         on_press: root.ir_a_modificar(root.ids.ejercicio_9.text)
                 GridLayout:
                     cols: 1
                     BackgroundLabel:
-                        background_color: 0.5, 0.5, 0.8, 1
+                        background_color: 0.5, 0.5, 0.8, 0.8
                         color: 0,0,0,1
                         id: repes
                         text: "Repeticiones"
@@ -147,7 +156,7 @@
                 GridLayout:
                     cols: 1
                     BackgroundLabel:
-                        background_color: 0.5, 0.5, 0.8, 1
+                        background_color: 0.5, 0.5, 0.8, 0.8
                         color: 0,0,0,1
                         id: peso
                         text: "Peso [Kg]"
@@ -181,7 +190,7 @@
                 GridLayout:
                     cols: 1
                     BackgroundLabel:
-                        background_color: 0.5, 0.5, 0.8, 1
+                        background_color: 0.5, 0.5, 0.8, 0.8
                         color: 0,0,0,1
                         id: serie_1
                         text: "1ª Serie"
@@ -234,7 +243,7 @@
                 GridLayout:
                     cols: 1
                     BackgroundLabel:
-                        background_color: 0.5, 0.5, 0.8, 1
+                        background_color: 0.5, 0.5, 0.8, 0.8
                         color: 0,0,0,1
                         id: serie_2
                         text: "2ª Serie"
@@ -287,7 +296,7 @@
                 GridLayout:
                     cols: 1
                     BackgroundLabel:
-                        background_color: 0.5, 0.5, 0.8, 1
+                        background_color: 0.5, 0.5, 0.8, 0.8
                         color: 0,0,0,1
                         id: serie_3
                         text: "3ª Serie"
@@ -412,6 +421,9 @@
 
 
 <ModificarEjercicio>:
+    Image:
+        source: "Images/leaf_drops_macro.jpg"
+        opacity: 0.5
     GridLayout:
         cols:1
         padding: 15, 15
