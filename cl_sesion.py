@@ -31,9 +31,10 @@ class Sesion():
     
     def Cambiar_Color(self,serie,ejercicio):
 
-        color0 = [0.1, 0.7, 1, 1]
+        color0 = [0.1, 0.7, 1, 0.5]
 
-        color1 = [0.8, 0.2, 1, 1]
+        #color1 = [0.8, 0.2, 1, 1]
+        color1 = [0.1, 0.7, 1, 1]
 
         if self.tabla_plantilla[serie][ejercicio] == 1:
 

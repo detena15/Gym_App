@@ -1,3 +1,19 @@
+#Plantillas: widgets personalizados a usar en el fichero kv
+
+#Label con color de fondo
+<BackgroundColor@Widget>
+    background_color: 1, 1, 1, 1
+    canvas.before:
+        Color:
+            rgba: root.background_color
+        Rectangle:
+            size: self.size
+            pos: self.pos
+<BackgroundLabel@Label+BackgroundColor>
+    background_color: 0, 0, 0, 0
+
+
+
 <RootWidget>:
     HomePage:
         name: "home_page"
@@ -39,7 +55,8 @@
             size_hint: 1,0.2
             GridLayout:
                 cols: 1
-                Label:
+                BackgroundLabel:
+                    background_color: 0.2, 0.2, 0.2, 1
                     pos_hint: {'center_x':0.5, 'center_y':0.6}
                     font_size:'30sp'
                     text: "VOLUNTAD"
@@ -53,7 +70,9 @@
                 cols: 6
                 GridLayout:
                     cols: 1
-                    Label:
+                    BackgroundLabel:
+                        background_color: 0.5, 0.5, 0.8, 1
+                        color: 0,0,0,1
                         text: "Ejercicio"
                     Button:
                         id: ejercicio_1
@@ -93,7 +112,9 @@
                         on_press: root.ir_a_modificar(root.ids.ejercicio_9.text)
                 GridLayout:
                     cols: 1
-                    Label:
+                    BackgroundLabel:
+                        background_color: 0.5, 0.5, 0.8, 1
+                        color: 0,0,0,1
                         id: repes
                         text: "Repeticiones"
                     Label:
@@ -125,7 +146,9 @@
                         text: ""
                 GridLayout:
                     cols: 1
-                    Label:
+                    BackgroundLabel:
+                        background_color: 0.5, 0.5, 0.8, 1
+                        color: 0,0,0,1
                         id: peso
                         text: "Peso [Kg]"
                     Label:
@@ -157,7 +180,9 @@
                         text: ""
                 GridLayout:
                     cols: 1
-                    Label:
+                    BackgroundLabel:
+                        background_color: 0.5, 0.5, 0.8, 1
+                        color: 0,0,0,1
                         id: serie_1
                         text: "1ª Serie"
                     Button:
@@ -208,7 +233,9 @@
                         on_press: root.done("1", root.ids.ejercicio_9.text,"serie_1_eje_9")
                 GridLayout:
                     cols: 1
-                    Label:
+                    BackgroundLabel:
+                        background_color: 0.5, 0.5, 0.8, 1
+                        color: 0,0,0,1
                         id: serie_2
                         text: "2ª Serie"
                     Button:
@@ -259,7 +286,9 @@
                         
                 GridLayout:
                     cols: 1
-                    Label:
+                    BackgroundLabel:
+                        background_color: 0.5, 0.5, 0.8, 1
+                        color: 0,0,0,1
                         id: serie_3
                         text: "3ª Serie"
                     Button:
@@ -332,15 +361,16 @@
 
 <SubmittedScreen>:
     Image:
-        source: "Images/pic_02.jpg"
+        source: "Images/deer_silhouette_animal.jpg"
         opacity: 0.5
     GridLayout:
         cols:1
         RelativeLayout:
-            size_hint: 1,0.3
+            size_hint: 0.5,0.3
             Label:
                 text: "Enhorabuena"
                 font_size:'60sp'
+                pos_hint: {'center_x':0.5, 'center_y':0.8}
         RelativeLayout:
             size_hint: 1,0.5
             GridLayout:
@@ -351,7 +381,6 @@
                         id: 1
                         font_size:'30sp'
                         text: ""
-                        
                     Label:
                         id: 2
                         font_size:'30sp'
@@ -378,37 +407,54 @@
                 id: inicio_btn
                 text: "Volver a Home Page"
                 size_hint: 0.25,0.25
-                pos_hint: {'center_x':0.5, 'center_y':0.1}
+                pos_hint: {'center_x':0.5, 'center_y':0.6}
                 on_press: root.volver_a_inicio()    
 
 
 <ModificarEjercicio>:
     GridLayout:
         cols:1
+        padding: 15, 15
         GridLayout:
             cols:2
+            padding: 15, 15
             GridLayout:
                 cols:1
+                padding: 15, 15
                 Label:
                     text: "Repeticiones"
+                    font_size:'25sp'
                 TextInput:
                     id: repes
                     text: ""
             GridLayout:
                 cols:1
+                padding: 15, 15
                 Label:
                     text: "Peso [kg]"
+                    font_size:'25sp'
                 TextInput:
                     id: peso
                     text: ""
         GridLayout:
-            cols: 2
-            Button:
-                text: "Volver a la Sesión"
-                on_press: root.volver_a_sesion()
-            Button:
-                text: "Modificar"
-                on_press: root.modificar_valor()
+            cols: 1
+            padding: 15, 15
+            RelativeLayout:
+                Button:
+                    text: "Modificar"
+                    on_press: root.modificar_valor()
+                    size_hint: 0.5,0.5
+                    pos_hint: {'center_x':0.5, 'center_y':0.6}
+                    padding: 15, 15
+                    font_size:'30sp'
+            RelativeLayout:
+                Button:
+                    text: "Volver a la Sesión"
+                    on_press: root.volver_a_sesion()
+                    size_hint: 0.2,0.2
+                    pos_hint: {'center_x':0.5, 'center_y':0.6}
+                    padding: 15, 15
+                    
 
 
 
