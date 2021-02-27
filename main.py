@@ -56,17 +56,12 @@ class TableScreen(Screen):
         
         self.ids[id].background_color = sesion.Cambiar_Color(serie,ejercicio)
 
-    def resetear(self):      
-        
-        sesion.Todo_Cero()
+    
+    def volver(self):
 
-        sesion.Guardar_Sesion(tabla_plantilla_path,sesion.tabla_plantilla)
+        self.manager.transition.direction = "right"
 
-        for i in serie_ejercicio:
-
-            self.ids[i].background_color = color0
-
-        self.ids.infor.text = ""
+        self.manager.current = "home_page"
         
     def submit(self):
 
@@ -84,8 +79,20 @@ class TableScreen(Screen):
 
             self.manager.current = "submitted_screen"
 
-            #sesion.Todo_Cero()  ----> ¿Es necesario?
+           
+    def resetear(self):      
+        
+        sesion.Todo_Cero()
+
+        sesion.Guardar_Sesion(tabla_plantilla_path,sesion.tabla_plantilla)
+
+        for i in serie_ejercicio:
+
+            self.ids[i].background_color = color0
+
+        self.ids.infor.text = ""
     
+
     def ir_a_modificar(self,ejercicio):
 
         #guardo el ejercicio para saber cual voy a modificar en el widget ModificarEjercicio()
@@ -165,8 +172,8 @@ historial = Historial(tabla_historial_path)
 #variables globales
 fecha_actual = datetime.now().strftime("%Y-%m-%d")
 
-color0 = [0.1, 0.7, 1, 1]
-color1 = [0.8, 0.2, 1, 1]
+color0 = [0.1, 0.7, 1, 0.2]
+color1 = [0.1, 0.7, 1, 1]
 
 #ids de los elementos de frontend.kv
 serie_ejercicio = ["serie_1_eje_1","serie_1_eje_2","serie_1_eje_3","serie_1_eje_4","serie_1_eje_5","serie_1_eje_6","serie_1_eje_7","serie_1_eje_8","serie_1_eje_9",
