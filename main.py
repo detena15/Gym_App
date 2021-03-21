@@ -25,14 +25,22 @@ class HomePage(Screen):
 
         self.manager.current = "table_screen"
 
+    def historial(self):
+
+        self.manager.transition.direction = "left"
+
+        self.manager.current = "historial_screen"
+
 class TableScreen(Screen):
 
     def obtener_fecha(self): return fecha_actual
     
     def color(self, serie, ejercicio): return sesion.Cambiar_Color(serie,ejercicio)
 
+    def color_cols(self): return [0.5, 0.8, 0.5, 0.8]
+
+
     #aqui envia a la tabla los valores Peso y Repes por cada Ejercicio
-    
     def on_enter(self):
 
         #toma los nombres de losejercicios de ejercicios.json y los manda a sus labels
@@ -146,6 +154,29 @@ class ModificarEjercicio(Screen):
         self.manager.current = "table_screen"
         
 
+class HistorialScreen(Screen):
+
+    def volver_a_inicio(self):
+
+        self.manager.transition.direction = "right"
+
+        self.manager.current = "home_page"
+    
+    def on_enter(self):
+
+        fecha_text = ""
+        total_entrenos = 0
+    
+        for fecha in historial.Fechas_Hist():
+            fecha_text = fecha_text + fecha + "\n"
+            total_entrenos = total_entrenos + 1
+        
+        #mostrar todas las fechas en las que he entrenado
+        self.ids.hist.text = fecha_text
+
+        #mostrar el numero total de entrenamientos
+        self.ids.total_entrenos.text = str(total_entrenos)
+
 
 class RootWidget(ScreenManager):
     pass
@@ -155,6 +186,7 @@ class MainApp(App):
     def build(self):
 
         return RootWidget()
+
 
 #----MAIN----
 Builder.load_file('frontend.kv')

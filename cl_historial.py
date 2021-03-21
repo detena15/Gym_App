@@ -28,6 +28,10 @@ class Historial():
             contador = contador + self.serie[ejercicio]
         
         return contador
+    
+    def Fechas_Hist(self):
+
+        return [fecha for fecha in self.tabla_historial]
         
         
 

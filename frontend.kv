@@ -23,6 +23,8 @@
         name: "submitted_screen"
     ModificarEjercicio:
         name: "modificar_ejercicio"
+    HistorialScreen:
+        name: "historial_screen"
 
 #WIDGETS
 <HomePage>:
@@ -45,34 +47,34 @@
                         size_hint: 0.25,0.15
                         font_size:'20sp'
                         on_press: root.entrenar()
+                    Button:
+                        id: hist_btn
+                        text: "Historial"
+                        pos_hint: {'center_x':0.5, 'center_y':0.4}
+                        size_hint: 0.25,0.15
+                        font_size:'20sp'
+                        on_press: root.historial()
         
 <TableScreen>:
-    Image:
-        source: "Images/sea_coast_starry_sky.jpg"
-        opacity: 0.5
     GridLayout:
         cols:1
         padding: 15, 15
         RelativeLayout:
-            size_hint: 1,0.2
+            size_hint: 1,0.1
             GridLayout:
                 cols: 1
                 Label:
-                    pos_hint: {'center_x':0.5, 'center_y':0.6}
-                    font_size:'30sp'
-                    text: "Voluntad"
-                Label:
-                    pos_hint: {'center_x':0.5, 'center_y':0.3}
+                    pos_hint: {'center_x':0.5, 'center_y':0.5}
                     font_size:'20sp'
                     text: root.obtener_fecha()
         RelativeLayout:
-            size_hint: 1,0.6
+            size_hint: 1,0.8
             GridLayout:
                 cols: 6
                 GridLayout:
                     cols: 1
                     BackgroundLabel:
-                        background_color: 0.5, 0.5, 0.8, 0.8
+                        background_color: root.color_cols()
                         color: 0,0,0,1
                         text: "Ejercicio"
                     Button:
@@ -123,7 +125,7 @@
                 GridLayout:
                     cols: 1
                     BackgroundLabel:
-                        background_color: 0.5, 0.5, 0.8, 0.8
+                        background_color: root.color_cols()
                         color: 0,0,0,1
                         id: repes
                         text: "Repeticiones"
@@ -157,7 +159,7 @@
                 GridLayout:
                     cols: 1
                     BackgroundLabel:
-                        background_color: 0.5, 0.5, 0.8, 0.8
+                        background_color: root.color_cols()
                         color: 0,0,0,1
                         id: peso
                         text: "Peso [Kg]"
@@ -191,7 +193,7 @@
                 GridLayout:
                     cols: 1
                     BackgroundLabel:
-                        background_color: 0.5, 0.5, 0.8, 0.8
+                        background_color: root.color_cols()
                         color: 0,0,0,1
                         id: serie_1
                         text: "1ª Serie"
@@ -244,7 +246,7 @@
                 GridLayout:
                     cols: 1
                     BackgroundLabel:
-                        background_color: 0.5, 0.5, 0.8, 0.8
+                        background_color: root.color_cols()
                         color: 0,0,0,1
                         id: serie_2
                         text: "2ª Serie"
@@ -297,7 +299,7 @@
                 GridLayout:
                     cols: 1
                     BackgroundLabel:
-                        background_color: 0.5, 0.5, 0.8, 0.8
+                        background_color: root.color_cols()
                         color: 0,0,0,1
                         id: serie_3
                         text: "3ª Serie"
@@ -347,7 +349,7 @@
                         background_color: root.color("3", "Triceps")
                         on_press: root.done("3", root.ids.ejercicio_9.text,"serie_3_eje_9")
         RelativeLayout:
-            size_hint: 1,0.15
+            size_hint: 1,0.1
             GridLayout:
                 cols: 3
                 RelativeLayout:
@@ -355,14 +357,14 @@
                         id: submit_btn
                         text: "Volver"
                         on_press: root.volver()
-                        size_hint: 0.7,0.3
+                        size_hint: 0.7,0.5
                         pos_hint: {'center_x':0.5, 'center_y':0.5}
                 RelativeLayout:
                     Button:
                         id: submit_btn
                         text: "Submit"
                         on_press: root.submit()
-                        size_hint: 0.9,0.5
+                        size_hint: 0.9,0.6
                         pos_hint: {'center_x':0.5, 'center_y':0.5}
                         font_size:'20sp'
                 RelativeLayout:
@@ -370,7 +372,7 @@
                         id: resetear_btn
                         text: "Resetear"
                         on_press: root.resetear()
-                        size_hint: 0.7,0.3
+                        size_hint: 0.7,0.5
                         pos_hint: {'center_x':0.5, 'center_y':0.5}
         RelativeLayout:
             size_hint: 1,0.05
@@ -382,9 +384,6 @@
                     text: ""
 
 <SubmittedScreen>:
-    Image:
-        source: "Images/deer_silhouette_animal.jpg"
-        opacity: 0.5
     GridLayout:
         cols:1
         RelativeLayout:
@@ -392,7 +391,7 @@
             Label:
                 text: "Enhorabuena"
                 font_size:'60sp'
-                pos_hint: {'center_x':0.5, 'center_y':0.8}
+                pos_hint: {'center_x':0.5, 'center_y':0.6}
         RelativeLayout:
             size_hint: 1,0.5
             GridLayout:
@@ -434,9 +433,6 @@
 
 
 <ModificarEjercicio>:
-    Image:
-        source: "Images/leaf_drops_macro.jpg"
-        opacity: 0.5
     GridLayout:
         cols:1
         padding: 15, 15
@@ -479,6 +475,48 @@
                     size_hint: 0.2,0.2
                     pos_hint: {'center_x':0.5, 'center_y':0.6}
                     padding: 15, 15
+
+<HistorialScreen>:
+    GridLayout:
+        cols: 1
+        padding: 30, 30
+        spacing: 30, 30
+        RelativeLayout:
+            size_hint: 0.25,0.2
+            Label:
+                text: "Historial"
+                font_size: '20sp'
+                pos_hint: {'center_x':0.5, 'center_y':0.6}
+                padding: 15, 15
+        GridLayout:
+            cols: 2
+            ScrollView:
+                Label:
+                    id: hist
+                    text: ""
+                    text_size: self.width, None
+                    size_hint_y: None
+                    height: self.texture_size[1]
+                    font_size: '20sp'
+            Label:
+                id: total_entrenos
+                font_size: '40sp'
+                text: ""
+        RelativeLayout:
+            size_hint: 0.2,0.2
+            Button:
+                id: inicio_btn
+                text: "Volver a Home Page"
+                on_press: root.volver_a_inicio()
+                size_hint: 0.3,0.4
+                pos_hint: {'center_x':0.5, 'center_y':0.2}
+                padding: 15, 15
+        
+
+
+
+        
+
                     
 
 

@@ -1,1 +1,38 @@
-{"Flexiones": {"Repeticiones": 10, "Peso": 0}, "Martillo": {"Repeticiones": 10, "Peso": 10}, "Sentadillas": {"Repeticiones": 15, "Peso": 0}, "Hombro": {"Repeticiones": 15, "Peso": 5}, "Remo": {"Repeticiones": 15, "Peso": 20}, "Abdominales": {"Repeticiones": 30, "Peso": 0}, "Lumbares": {"Repeticiones": 15, "Peso": 0}, "Jabs": {"Repeticiones": 30, "Peso": 5}, "Triceps": {"Repeticiones": 15, "Peso": 15}}
+{
+    "Flexiones": {
+        "Repeticiones": 10,
+        "Peso": 0
+    },
+    "Martillo": {
+        "Repeticiones": 10,
+        "Peso": 10
+    },
+    "Sentadillas": {
+        "Repeticiones": 15,
+        "Peso": 0
+    },
+    "Hombro": {
+        "Repeticiones": 15,
+        "Peso": 5
+    },
+    "Remo": {
+        "Repeticiones": 15,
+        "Peso": 20
+    },
+    "Abdominales": {
+        "Repeticiones": 30,
+        "Peso": 0
+    },
+    "Lumbares": {
+        "Repeticiones": 15,
+        "Peso": 0
+    },
+    "Jabs": {
+        "Repeticiones": 30,
+        "Peso": 5
+    },
+    "Triceps": {
+        "Repeticiones": 15,
+        "Peso": 15
+    }
+}
